@@ -31,7 +31,7 @@ public class ClienteEntrypoint {
         return domain;
     } 
     
-    @POST
+    @GET
     @Path("/{pais}")
     public String getDataCountry(@PathParam("pais") String pais){
         String domain = getInfoCountryUseCase.execute(pais); 
