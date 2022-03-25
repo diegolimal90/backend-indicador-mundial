@@ -1,0 +1,16 @@
+version: "3"
+services:
+  dev-backend-indicador:
+    build:
+      context: ../
+      dockerfile: ./Dockerfile.dev
+    environment:
+      - REPO_LOCAL=/root/.m2/repository
+    volumes:
+      - maven-repo:/root/.m2/repository
+      - $PWD:/app
+    ports:
+      - "8080:8080" # Server
+      - "5005:5005" # DEBUG
+    extra_hosts:
+      - "atf.intranet.bb.com.br:170.66.49.15"
